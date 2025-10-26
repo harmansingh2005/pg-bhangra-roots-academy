@@ -4,13 +4,6 @@ A modern React (Vite) website for PG Bhangra Roots Academy — showcasing the in
 
 ## Tech Stack
 - React + Vite
-- Tailwind CSS (optional)
 - react-router-dom
 - Booking embed (Calendly/TidyCal)
 
-## Scripts
-```bash
-npm install
-npm run dev     # start local dev server
-npm run build   # production build
-npm run preview # preview the build
