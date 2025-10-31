@@ -1,0 +1,83 @@
+.home-intro {
+  padding: clamp(20px, 5vw, 60px) 0 clamp(24px, 6vw, 72px);
+  background: transparent;
+}
+
+/* Card */
+.intro-card {
+  /* Match Navbar color scheme */
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: clamp(16px, 4.5vw, 44px);
+  display: grid;
+  grid-template-columns: 1fr;
+  /* On mobile, place logo first, then copy */
+  grid-template-areas:
+    'visual'
+    'copy';
+  gap: 1rem;
+}
+
+.intro-copy h2 {
+  margin: 0 0 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.4rem);
+}
+
+/* Assign grid areas */
+.intro-copy { grid-area: copy; }
+.intro-visual { grid-area: visual; }
+
+.intro-copy p {
+  margin: 0 0 1rem;
+  color: #cbd5e1; /* lighter text for dark card */
+}
+
+.btn-learn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(255, 120, 39, 0.35);
+  transition: transform 120ms ease, background-color 200ms ease;
+}
+
+.btn-learn:hover { background: #e86b21; transform: translateY(-1px); }
+
+@media (min-width: 900px) {
+  .intro-card {
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-areas: 'copy visual'; /* copy left, logo right on desktop */
+    align-items: center;
+  }
+}
+
+
+@media (min-width: 900px) {
+  .home-intro .container {
+    max-width: none;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding-left: 45px;
+    padding-right: 0;
+  }
+}
+
+/* Logo column */
+.intro-visual {
+  display: grid;
+  place-items: center;
+}
+.intro-visual img {
+  width: clamp(120px, 28vw, 320px);
+  height: auto;
+  display: block; /* no radius, no shadow, no background */
+}
