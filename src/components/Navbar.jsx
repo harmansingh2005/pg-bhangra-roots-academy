@@ -45,7 +45,7 @@ export default function Navbar() {
 
         {/* Right: actions */}
         <div className="actions">
-          <Link to="/contact" className="btn-register">Register</Link>
+          <Link to="/register" className="btn-register">Register</Link>
         </div>
 
         {/* Mobile burger (shown via CSS) */}

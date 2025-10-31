@@ -1,17 +1,18 @@
 :root {
-  --nav-bg: rgba(255, 255, 255, 0.75);
-  --nav-text: #111827; /* slate-900 */
+  /* Darker blue-ish navbar on light pages */
+  --nav-bg: #1b2a41; /* deep blue-gray */
+  --nav-text: #e6edf3; /* light text */
   --nav-accent: #ff7827; /* brand action */
   --nav-accent-hover: #e86b21; /* darker hover */
-  --nav-border: rgba(17, 24, 39, 0.06);
-  --nav-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-shadow: 0 6px 22px rgba(0,0,0,0.18);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --nav-bg: rgba(17, 24, 39, 0.65); /* slate-900 */
-    --nav-text: #e5e7eb; /* gray-200 */
-    --nav-border: rgba(229, 231, 235, 0.08);
+    --nav-bg: #1b2a41;
+    --nav-text: #e6edf3;
+    --nav-border: rgba(255, 255, 255, 0.08);
     --nav-shadow: 0 8px 24px rgba(0,0,0,0.35);
   }
 }
