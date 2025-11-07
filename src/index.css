@@ -40,3 +40,13 @@ p { margin: 0.5rem 0 1rem; color: var(--muted); }
 /* ---------- Helpers ---------- */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
 .page { padding: 2rem 1rem; }
+
+.page.home {
+  padding: 0;
+}
+
+/* Mobile only: add space on the right side */
+@media (max-width: 640px) {
+  .page.home { padding-right: 0.75rem; }
+}
+

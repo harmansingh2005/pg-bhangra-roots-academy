@@ -48,16 +48,16 @@ export default function Navbar() {
           <Link to="/register" className="btn-register">Register</Link>
         </div>
 
-        {/* Mobile burger (shown via CSS) */}
+        {/* Mobile burger */}
         <button
-          className="menu-toggle"
-          aria-label="Toggle navigation menu"
+          className={`menu-toggle${open ? ' open' : ''}`}
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <svg viewBox="0 0 24 24" fill="none" strokeWidth="2">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeLinecap="round" />
-          </svg>
+          <span className="bar" aria-hidden="true"></span>
+          <span className="bar" aria-hidden="true"></span>
+          <span className="bar" aria-hidden="true"></span>
         </button>
       </div>
 

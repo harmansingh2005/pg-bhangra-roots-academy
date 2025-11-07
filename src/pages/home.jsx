@@ -4,6 +4,7 @@ import HomeIntro from '../components/HomeIntro';
 import HomeTestimonials from '../components/HomeTestimonials';
 import HomeFeatures from '../components/HomeFeatures';
 import HomeClasses from '../components/HomeClasses';
+import HomeInstagram from '../components/HomeInstagram';
 
 export default function Home() {
 	return (
@@ -13,6 +14,7 @@ export default function Home() {
 			<HomeFeatures />
 			<HomeClasses />
 			<HomeTestimonials />
+			<HomeInstagram />
 		</main>
 	);
 }

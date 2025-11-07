@@ -1,6 +1,6 @@
 :root {
   /* Darker blue-ish navbar on light pages */
-  --nav-bg: #1b2a41; /* deep blue-gray */
+  --nav-bg: #0f172a; /* deep blue-gray */
   --nav-text: #e6edf3; /* light text */
   --nav-accent: #ff7827; /* brand action */
   --nav-accent-hover: #e86b21; /* darker hover */
@@ -10,7 +10,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --nav-bg: #1b2a41;
+    --nav-bg: #0f172a;
     --nav-text: #e6edf3;
     --nav-border: rgba(255, 255, 255, 0.08);
     --nav-shadow: 0 8px 24px rgba(0,0,0,0.35);
@@ -138,13 +138,27 @@
   cursor: pointer;
   padding: 0.35rem;
   justify-self: start; /* sits in left zone on mobile */
+  color: #ffffff; /* ensure currentColor is white for SVG path */
+  transition: transform 220ms ease;
+  transform-origin: 50% 50%;
 }
 
-.navbar .menu-toggle svg {
+/* Hamburger bars */
+.navbar .menu-toggle .bar {
+  display: block;
   width: 26px;
-  height: 26px;
-  stroke: var(--nav-text);
+  height: 2px;
+  margin: 5px 0;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 200ms ease, opacity 200ms ease, background-color 200ms ease;
 }
+
+/* On open: rotate the whole icon 90deg (bars stay parallel, turn vertical) */
+.navbar .menu-toggle.open { transform: rotate(90deg); }
+
+/* Ensure bars remain visible and untransformed in open state */
+.navbar .menu-toggle.open .bar { opacity: 1; transform: none; }
 
 .navbar .mobile-panel {
   display: none;
@@ -161,6 +175,9 @@
 
   .navbar .menu-toggle {
     display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .navbar .mobile-panel {
@@ -185,4 +202,34 @@
     padding: 0.5rem 0.25rem;
     display: inline-block;
   }
+
+  .navbar .mobile-register {
+    margin-top: 0.4rem;
+    display: inline-flex;
+    background: var(--nav-accent);
+    color: #fff;
+    padding: 0.65rem 1.1rem;
+    font-weight: 600;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(255, 120, 39, 0.35);
+    text-decoration: none;
+  }
+  .navbar .mobile-register:hover { background: var(--nav-accent-hover); }
+}
+
+/* Tablet breakpoint refinements */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .navbar .nav-inner { grid-template-columns: auto 1fr auto; }
+  .navbar .nav-links { gap: 1rem; }
+  .navbar .btn-register { padding: 0.5rem 0.85rem; font-size: 0.9rem; }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  .navbar .brand-name { font-size: 1.05rem; }
+  .navbar .logo { width: 40px; height: 40px; }
+  .navbar .menu-toggle { padding: 0.25rem; }
+  .navbar .mobile-register { width: 100%; text-align: center; }
+  /* Keep Register visible in the top bar, but make it compact */
+  .navbar .btn-register { padding: 0.45rem 0.8rem; font-size: 0.88rem; }
 }

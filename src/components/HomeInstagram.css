@@ -1,0 +1,99 @@
+/* Instagram Section */
+
+:root {
+  /* project color tokens */
+  --bg: #f7f9fc;      /* subtle background tint */
+  --accent: #ff7827;  /* brand accent (orange) */
+}
+
+.home-instagram {
+  /* soft gradient from white to orange */
+  /* fallback for broad browser support — pure accent at end */
+  background: linear-gradient(180deg, var(--bg, #ffffff) 0%, #ff7827 100%);
+  /* modern browsers — use CSS var directly */
+  background: linear-gradient(
+    180deg,
+    var(--bg, #ffffff) 0%,
+    var(--accent, #ff7827) 100%
+  );
+  padding: 3rem 0 3.5rem;
+}
+
+.ig-container {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.ig-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.ig-header h2 {
+  margin: 0 0 0.25rem 0;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.25rem);
+}
+
+.ig-subtext {
+  color: #475569; /* slate-600 */
+  margin: 0;
+}
+
+.ig-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0;
+  margin: 1rem 0 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.ig-tile {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(2, 6, 23, 0.08);
+  background: #fff;
+}
+
+.ig-tile iframe {
+  display: block;
+  width: 100%;
+  height: 520px; /* consistent height for grid; Instagram adjusts inside */
+  border: 0;
+}
+
+.ig-cta-wrap {
+  text-align: center;
+}
+
+.ig-btn {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  background: #0f172a; /* slate-900 */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(2, 6, 23, 0.15);
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+}
+
+.ig-btn:hover, .ig-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.2);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-btn { transition: none; }
+}

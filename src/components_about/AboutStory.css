@@ -1,0 +1,32 @@
+/* About Story styles */
+.about-story { padding: clamp(2rem, 1.2rem + 2vw, 3rem) 0; }
+
+.story-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; }
+
+.story-main h2 { margin: 0 0 0.75rem; font-size: 1.6rem; }
+.story-main p { color: var(--muted); }
+.story-main p + p { margin-top: 0.8rem; }
+
+.story-aside .aside-card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 1rem 1rem;
+  box-shadow: 0 10px 24px rgba(2,6,23,0.07);
+}
+
+.aside-card h3 { margin: 0 0 0.6rem; font-weight: 800; }
+.highlight-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.4rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .aside-card { animation: fadeUp 500ms ease both; animation-delay: 120ms; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .story-grid { grid-template-columns: 1fr; }
+}
