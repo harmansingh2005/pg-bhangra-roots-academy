@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutHero.css';
+import heroImg from '../assets/about_img/about_hero.png';
 
 export default function AboutHero() {
   const stats = [
@@ -9,11 +10,15 @@ export default function AboutHero() {
   ];
 
   return (
-    <section className="about-hero">
+    <section
+      className="about-hero"
+      style={{ '--hero-img': `url(${heroImg})` }}
+    >
       <div className="about-hero-inner container">
-        <h1 id="about-title" className="about-heading">
-          Celebrating Punjabi Culture in Prince George
-        </h1>
+          <span className="about-kicker">Celebrating</span>
+          <h1 id="about-title" className="about-heading">
+            Punjabi Culture in Prince George
+          </h1>
         <p className="about-tagline">
           Spreading the passion, discipline, and positivity of Bhangra. Building unity through rhythm.
         </p>

@@ -30,3 +30,8 @@
 @media (max-width: 900px) {
   .story-grid { grid-template-columns: 1fr; }
 }
+
+
+@media (max-width: 640px) {
+  .about-story { padding-left: 1rem; padding-right: 1rem; }
+}

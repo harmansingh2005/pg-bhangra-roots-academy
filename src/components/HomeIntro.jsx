@@ -10,7 +10,7 @@ export default function HomeIntro() {
         <div className="intro-copy">
           <h2>About PG Bhangra Roots Academy-</h2>
           <p>
-            Founded in 2023, PG Bhangra Roots Academy is dedicated to preserving Punjabi
+            Founded in 2024, PG Bhangra Roots Academy is dedicated to preserving Punjabi
             culture through dance. Our instructors combine authentic Bhangra techniques with
             modern choreography to help students grow in confidence, teamwork, and rhythm.
           </p>

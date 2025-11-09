@@ -1,10 +1,48 @@
 /* About Hero styles */
 .about-hero {
-  background: linear-gradient(180deg, var(--surface, #fff) 0%, color-mix(in srgb, var(--accent, #ff7827) 20%, #ffffff) 100%);
+  /* Background image + dark overlay for readability */
+  background-image: linear-gradient(180deg, rgba(2,6,23,0.6) 0%, rgba(2,6,23,0.32) 45%, rgba(2,6,23,0.16) 100%), var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: clamp(480px, 75vh, 880px);
+  display: grid;
+  align-items: center;
   padding: clamp(3rem, 2rem + 3vw, 5rem) 0;
+  color: #ffffff;
 }
 
-.about-hero-inner { text-align: center; }
+/* Desktop: allow full viewport height for immersive image */
+@media (min-width: 1100px) {
+  .about-hero {
+    min-height: 100vh;
+  }
+}
+
+.about-hero-inner { 
+  text-align: center; 
+  will-change: transform, opacity;
+}
+
+.about-kicker {
+  display: block;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: clamp(2.2rem, 4rem + 4vw, 6rem);
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 6px 30px rgba(0,0,0,0.35);
+  margin: 0 0 0.25rem;
+  /* Lift the script word above the H1 using a variable so animation respects it */
+  --lift: -0.5em;
+  transform: translateY(var(--lift));
+}
+
+/* On wider viewports, lift a touch more for composition */
+@media (min-width: 768px) {
+  .about-kicker { --lift: -0.6em; }
+}
 
 .about-heading {
   margin: 0 0 0.5rem 0;
@@ -15,7 +53,7 @@
 .about-tagline {
   margin: 0 auto 1.75rem;
   max-width: 60ch;
-  color: var(--muted);
+  color: #e2e8f0; /* light for contrast on image */
 }
 
 .about-stats {
@@ -26,7 +64,7 @@
 }
 
 .about-stat {
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.75);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(2,6,23,0.06);
@@ -40,12 +78,24 @@
 .stat-label { font-size: 0.9rem; color: var(--muted); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .about-hero, .about-stat { animation: fadeUp 500ms ease both; }
-  .about-stat:nth-child(2) { animation-delay: 60ms; }
-  .about-stat:nth-child(3) { animation-delay: 120ms; }
+  /* Staggered entrance: kicker, heading, tagline, then stat cards */
+  .about-kicker { animation: fadeUpKicker 520ms ease-out 60ms both; }
+  .about-heading { animation: fadeUp 560ms ease-out 140ms both; }
+  .about-tagline { animation: fadeUp 560ms ease-out 220ms both; }
+
+  .about-stat { animation: fadeUp 500ms ease both; }
+  .about-stat:nth-child(1) { animation-delay: 320ms; }
+  .about-stat:nth-child(2) { animation-delay: 400ms; }
+  .about-stat:nth-child(3) { animation-delay: 480ms; }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Kicker animation that preserves the lifted end position */
+@keyframes fadeUpKicker {
+  from { opacity: 0; transform: translateY(calc(var(--lift) + 10px)); }
+  to { opacity: 1; transform: translateY(var(--lift)); }
 }
