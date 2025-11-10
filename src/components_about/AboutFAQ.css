@@ -46,7 +46,6 @@
 .chev { transition: transform 220ms ease; }
 .faq-item.open .chev, .faq-question[aria-expanded="true"] .chev { transform: rotate(180deg); }
 
-/* Smooth open/close using CSS grid trick */
 .faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 260ms ease; }
 .faq-panel.open { grid-template-rows: 1fr; }
 .faq-content { overflow: hidden; }

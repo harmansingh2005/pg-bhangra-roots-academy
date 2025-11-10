@@ -1,0 +1,145 @@
+/* Instructor section */
+.about-instructor {
+  /* Vertical padding default; horizontal handled responsively below */
+  padding: clamp(2rem, 1.5rem + 2vw, 4rem) 0;
+}
+
+/* Add comfortable side padding on small screens */
+@media (max-width: 700px) {
+  .about-instructor {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  /* On mobile, show caption above the image */
+  .instructor-figure {
+    display: flex;
+    flex-direction: column-reverse; /* caption first, image after */
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.instructor-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  align-items: start;
+  /* Define order areas for mobile stacking */
+  grid-template-areas:
+    "heading"
+    "figure"
+    "content";
+}
+
+@media (min-width: 960px) {
+  .instructor-layout {
+    grid-template-columns: minmax(280px, 420px) 1fr;
+    gap: clamp(2rem, 1rem + 3vw, 3rem);
+    /* Desktop: figure left, heading above content on the right */
+    grid-template-areas:
+      "figure heading"
+      "figure content";
+  }
+}
+
+.instructor-heading-wrap { grid-area: heading; }
+.instructor-figure { grid-area: figure; }
+.instructor-content { grid-area: content; }
+
+@media (min-width: 960px) {
+  .instructor-heading { margin-top: 0; }
+}
+
+.instructor-figure {
+  /* Normal flow (no sticky/parallax) */
+  display: grid;
+  gap: 0.5rem;
+}
+
+.instructor-img {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid rgba(2,6,23,0.08);
+  box-shadow: 0 20px 60px rgba(2,6,23,0.08);
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+
+.instructor-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.instructor-heading {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+}
+
+.section-subheading {
+  margin: 1.25rem 0 0.5rem;
+  font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.instructor-content p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.instructor-content p + p { margin-top: 0.75rem; }
+
+.achievement-grid {
+  margin-top: 1rem;
+  display: grid;
+  /* Evenly spread cards across the row with equal widths */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  align-items: stretch; /* make all grid items equal height */
+}
+
+.achievement-card {
+  background: #ffffff;
+  border: 1px solid rgba(2,6,23,0.06);
+  border-radius: 14px;
+  padding: 0.9rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem 0.7rem;
+  align-items: start;
+  height: 100%;
+}
+
+.ach-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #f59e0b; /* gold */
+}
+
+.achievement-card h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.ach-desc {
+  margin: 0.1rem 0 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .instructor-figure, .instructor-content > * { animation: fadeInUp 520ms ease both; }
+  .instructor-content > *:nth-child(1) { animation-delay: 60ms; }
+  .instructor-content > *:nth-child(2) { animation-delay: 120ms; }
+  .instructor-content > *:nth-child(3) { animation-delay: 180ms; }
+  .achievement-card { animation: fadeInUp 480ms ease both; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
