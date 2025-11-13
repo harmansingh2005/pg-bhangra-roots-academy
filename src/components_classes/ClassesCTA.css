@@ -1,0 +1,19 @@
+.classes-cta {
+  background: #f97316;
+  color: #fff;
+  padding: clamp(2.5rem,2rem + 3vw,4rem) 0;
+  margin-top: 2.5rem;
+}
+.cta-inner { text-align: center; }
+.cta-heading { margin: 0 0 0.75rem; font-size: clamp(1.9rem,1.4rem + 2vw,2.6rem); font-weight: 800; }
+.cta-sub { margin: 0 auto 1.25rem; max-width: 55ch; font-size: clamp(1rem,0.95rem + .4vw,1.15rem); }
+.cta-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+.btn { display:inline-block; padding:0.75rem 1.25rem; border-radius:999px; font-weight:700; text-decoration:none; transition: background-color 160ms ease, color 160ms ease, transform 160ms ease; }
+.btn-cta-primary { background:#fff; color:#f97316; }
+.btn-cta-primary:hover { background:#f97316; color:#fff; box-shadow:0 0 0 2px #fff inset; transform:translateY(-2px); }
+.btn-cta-secondary { background:transparent; color:#fff; box-shadow:0 0 0 2px #fff inset; }
+.btn-cta-secondary:hover { background:#fff; color:#f97316; transform:translateY(-2px); }
+@media (prefers-reduced-motion: no-preference){
+  .classes-cta { animation: fadeInOrange 650ms ease both; }
+}
+@keyframes fadeInOrange { from {opacity:0; transform: translateY(18px);} to {opacity:1; transform: translateY(0);} }

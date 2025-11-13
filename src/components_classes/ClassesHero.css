@@ -1,0 +1,48 @@
+.classes-hero {
+  /* Accent orange from both sides fading to page bg in the center */
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    #ff9b5e 16%,
+    #ffe1cf 32%,
+    var(--bg) 50%,
+    #ffe1cf 68%,
+    #ff9b5e 84%,
+    var(--accent) 100%
+  );
+  padding: clamp(3rem,2.5rem + 4vw,6rem) 0 clamp(2rem,1.5rem + 2vw,3.5rem);
+  text-align: center;
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional subtle pattern overlay (soft noise via radial gradients) */
+.classes-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 18% 22%, rgba(255,255,255,0.35) 0%, transparent 60%),
+              radial-gradient(circle at 82% 68%, rgba(255,255,255,0.28) 0%, transparent 65%);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.classes-hero-heading {
+  font-size: clamp(2rem,1.4rem + 3vw,3.2rem);
+  margin: 0 0 1rem;
+  font-weight: 800;
+}
+
+.classes-hero-sub {
+  margin: 0 auto;
+  max-width: 60ch;
+  font-size: clamp(1rem,0.95rem + .4vw,1.15rem);
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .classes-hero-heading { animation: fadeUp 600ms ease 40ms both; }
+  .classes-hero-sub { animation: fadeUp 640ms ease 120ms both; }
+}
+
+@keyframes fadeUp { from {opacity:0; transform: translateY(14px);} to {opacity:1; transform: translateY(0);} }

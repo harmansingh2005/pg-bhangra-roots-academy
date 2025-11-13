@@ -1,0 +1,5 @@
+.classes-schedule { padding: 1.5rem 0 0; }
+.schedule-heading { font-size: clamp(1.5rem,1.1rem + 1.4vw,1.9rem); font-weight: 800; margin: 0 0 0.75rem; }
+.schedule-list { list-style: none; padding: 0; margin: 0 0 0.75rem; display: grid; gap: 0.4rem; }
+.schedule-list li { background: #fff; padding: 0.75rem 1rem; border-radius: 12px; border: 1px solid rgba(2,6,23,0.06); box-shadow: 0 4px 14px rgba(2,6,23,0.05); }
+.schedule-note { font-size: 0.9rem; color: var(--muted); margin: 0; }
